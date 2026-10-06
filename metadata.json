@@ -1,0 +1,6 @@
+{
+  "name": "Coffee Castle Taxila | Café, Coffee & Dining",
+  "description": "Discover Coffee Castle Taxila on Allama Iqbal Avenue — coffee, food, pizza, burgers, steaks, desserts and a relaxed café atmosphere.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
