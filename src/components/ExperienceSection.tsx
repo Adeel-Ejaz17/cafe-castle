@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Sun, Moon, Sparkles, CheckCircle2 } from 'lucide-react';
+import { IMAGES } from '../assets/images';
 
 export const ExperienceSection: React.FC = () => {
   const [activeMood, setActiveMood] = useState<'day' | 'night'>('day');
@@ -50,11 +51,11 @@ export const ExperienceSection: React.FC = () => {
         <div className="relative rounded-2xl overflow-hidden shadow-2xl bg-[#171716] border border-[#2A211C]/15 transition-all duration-500">
           <div className="aspect-[16/9] sm:aspect-[21/9] w-full relative overflow-hidden">
             <img
-              src={
-                activeMood === 'day'
-                  ? '/src/assets/images/daytime_patio_exterior_1791279492640.jpg'
-                  : '/src/assets/images/hero_coffee_castle_exterior_1791279480313.jpg'
-              }
+              src={activeMood === 'day' ? IMAGES.patio : IMAGES.hero}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).src =
+                  activeMood === 'day' ? IMAGES.publicPatio : IMAGES.publicHero;
+              }}
               alt={
                 activeMood === 'day'
                   ? 'Coffee Castle Taxila daytime outdoor lawn and architectural pavilion'

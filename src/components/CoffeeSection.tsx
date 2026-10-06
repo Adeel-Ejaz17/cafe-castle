@@ -1,5 +1,6 @@
 import React from 'react';
 import { Coffee, Flame, Droplets, Clock } from 'lucide-react';
+import { IMAGES } from '../assets/images';
 
 export const CoffeeSection: React.FC = () => {
   return (
@@ -76,7 +77,10 @@ export const CoffeeSection: React.FC = () => {
           <div className="lg:col-span-6">
             <div className="relative group rounded-xl overflow-hidden shadow-2xl border border-[#B58A52]/20 aspect-[4/3] bg-[#171716]">
               <img
-                src="/src/assets/images/latte_art_coffee_1791279507843.jpg"
+                src={IMAGES.latte}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = IMAGES.publicLatte;
+                }}
                 alt="Coffee Castle Taxila artisan cappuccino cup with intricate latte art on cafe table"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"

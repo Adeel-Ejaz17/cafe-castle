@@ -106,6 +106,11 @@ export const ImageLightbox: React.FC<ImageLightboxProps> = ({
         <div className="relative max-h-[72vh] w-auto overflow-hidden rounded-lg shadow-2xl">
           <img
             src={photo.src}
+            onError={(e) => {
+              if (photo.fallbackSrc) {
+                (e.currentTarget as HTMLImageElement).src = photo.fallbackSrc;
+              }
+            }}
             alt={photo.title}
             referrerPolicy="no-referrer"
             className="max-h-[72vh] w-auto max-w-full object-contain rounded-lg"

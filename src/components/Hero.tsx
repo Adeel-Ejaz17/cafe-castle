@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Navigation, Sparkles } from 'lucide-react';
 import { RESTAURANT_INFO } from '../data/restaurantData';
+import { IMAGES } from '../assets/images';
 
 export const Hero: React.FC = () => {
   return (
@@ -8,7 +9,10 @@ export const Hero: React.FC = () => {
       {/* Background Hero Image */}
       <div className="absolute inset-0 z-0">
         <img
-          src="/src/assets/images/hero_coffee_castle_exterior_1791279480313.jpg"
+          src={IMAGES.hero}
+          onError={(e) => {
+            (e.currentTarget as HTMLImageElement).src = IMAGES.publicHero;
+          }}
           alt="Coffee Castle Taxila exterior facade with glowing neon sign at dusk"
           referrerPolicy="no-referrer"
           className="w-full h-full object-cover object-center scale-105 transition-transform duration-1000 ease-out"

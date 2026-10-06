@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { IMAGES } from '../assets/images';
 
 export const SignatureFood: React.FC = () => {
   return (
@@ -27,7 +28,10 @@ export const SignatureFood: React.FC = () => {
             <div className="relative group rounded-xl overflow-hidden shadow-2xl bg-[#2A211C]">
               <div className="aspect-[16/11] overflow-hidden">
                 <img
-                  src="/src/assets/images/artisan_pizza_board_1791279525904.jpg"
+                  src={IMAGES.pizza}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = IMAGES.publicPizza;
+                  }}
                   alt="Freshly baked Castle Pizza with chicken, olives, bell peppers, and melted mozzarella on wooden paddle board"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -59,7 +63,10 @@ export const SignatureFood: React.FC = () => {
             <div className="relative group rounded-xl overflow-hidden shadow-xl bg-[#2A211C]">
               <div className="aspect-[4/3] overflow-hidden">
                 <img
-                  src="/src/assets/images/crispy_chicken_steak_1791279541567.jpg"
+                  src={IMAGES.steak}
+                  onError={(e) => {
+                    (e.currentTarget as HTMLImageElement).src = IMAGES.publicSteak;
+                  }}
                   alt="Crispy grilled chicken steak in rich mushroom cream sauce with fries and sautéed vegetables"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"

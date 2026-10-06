@@ -1,6 +1,7 @@
 import React from 'react';
 import { Coffee, Users, Utensils, Moon } from 'lucide-react';
 import { RESTAURANT_INFO } from '../data/restaurantData';
+import { IMAGES } from '../assets/images';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -11,7 +12,10 @@ export const AboutSection: React.FC = () => {
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-lg overflow-hidden shadow-2xl border border-[#2A211C]/10 aspect-[4/3] group">
               <img
-                src="/src/assets/images/daytime_patio_exterior_1791279492640.jpg"
+                src={IMAGES.patio}
+                onError={(e) => {
+                  (e.currentTarget as HTMLImageElement).src = IMAGES.publicPatio;
+                }}
                 alt="Coffee Castle Taxila daytime outdoor patio and lawn seating"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

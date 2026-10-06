@@ -63,6 +63,11 @@ export const GallerySection: React.FC = () => {
               >
                 <img
                   src={photo.src}
+                  onError={(e) => {
+                    if (photo.fallbackSrc) {
+                      (e.currentTarget as HTMLImageElement).src = photo.fallbackSrc;
+                    }
+                  }}
                   alt={photo.title}
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
